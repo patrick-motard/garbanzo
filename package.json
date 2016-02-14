@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/patrick-motard/garbanzo#readme",
   "dependencies": {
+    "crypto": "0.0.3",
     "express": "^4.13.4",
     "passport": "^0.3.2",
     "passport-reddit": "^0.2.4",
