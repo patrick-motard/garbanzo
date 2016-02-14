@@ -1,0 +1,25 @@
+{
+  "name": "garbanzo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patrick-motard/garbanzo.git"
+  },
+  "author": "patrick motard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patrick-motard/garbanzo/issues"
+  },
+  "homepage": "https://github.com/patrick-motard/garbanzo#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "passport": "^0.3.2",
+    "passport-reddit": "^0.2.4",
+    "underscore": "^1.8.3"
+  }
+}
