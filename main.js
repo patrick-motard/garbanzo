@@ -121,7 +121,7 @@ app.get('/auth/reddit', passport.authenticate('reddit'));
 
 app.get('/auth/reddit/callback', passport.authenticate('reddit',
 {
-	successRedirect: '/account',
+	successRedirect: '/#/account',
 	failureRedirect: '/'
 }));
 // function(req, res, next){

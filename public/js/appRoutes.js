@@ -21,5 +21,5 @@ var module = angular.module("dashboard", ['ngRoute']);
         }]);
 
     module.controller("RouteController", function($scope) {
-
+            $scope.loggedIn = false;
     });

@@ -12,12 +12,12 @@
     <nav>
         <ul>
             <li><a href="#/main">main</a></li>
-            <li><a href="#/account">account</a></li>
-            <li><a href="#/login">login</a></li>
-            <li><a href="#/logout">logout</a></li>
+            <li ng-show="loggedIn"><a href="#/account">account</a></li>
+            <li ng-hide="loggedIn"><a href="#/login">login</a></li>
+            <li ng-show="loggedIn"><a href="#/logout">logout</a></li>
         </ul>
     </nav>
-    
+
      <div ng-view></div>
   </div>
   </body>
