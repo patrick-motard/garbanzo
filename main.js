@@ -52,15 +52,16 @@ function getUserInfo(token){
 	var defaults = {
 		"domain": "https://oauth.reddit.com",
 		"method": "GET",
-		"path": "/api"
+		"path": "/api",
+		"endpoint": "account"
 	};
 	var options = {};
 	options.domain = defaults.domain;
 	options.path = defaults.path;
-
+	options.endpoint = defaults.endpoint;
 
 	var req = {
-		"uri": options.domain + options.path + '/' + endpoint,
+		"uri": options.domain + options.path + '/' + options.endpoint,
 		"method": options.method,
 		"form": options.form,
 		"qs": options.qs,
