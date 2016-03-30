@@ -80,13 +80,13 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.engine('handlebars', handlebars({defaultLayout: 'main'}));
-app.set('view engine', 'handlebars');
+//app.engine('handlebars', handlebars({defaultLayout: 'main'}));
+//app.set('view engine', 'handlebars');
 
 
-app.get('/', function(req, res){
-	res.render('home', {user: req.user});
-});
+//app.get('/', function(req, res){
+//	res.render('home', {user: req.user});
+//});
 
 // app.get('/account', ensureAuthenticated, function(req, res){
 //
@@ -140,6 +140,13 @@ app.get('/auth/reddit/callback', passport.authenticate('reddit',
 // 		next(new Error(403));
 // 	}
 // });
+
+//
+app.use(express.static(__dirname + '/public'));
+
+app.get('/', function(req, res){
+  res.redirect('/index.html');
+});
 
 app.get('/logout', function(req, res){
 	req.logout();
