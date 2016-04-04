@@ -16,12 +16,8 @@ var express 			= require('express'),
 	consumer_key		= 'WxtRyRiGVbiL8A',
 	consumer_secret		= 'xJNj7utuQyRTcGGqH-xQQlqpTGM',
 	redirect			= 'http://localhost:8080',
+	request				= require('request'),
 	state = "";
-
-
-// var url = reddit.authUrl("GET", ['identity']);
-
-
 
 passport.serializeUser(function(user,done){
 	done(null, user);
@@ -38,10 +34,10 @@ passport.use(new redditStrategy({
 		state: true
 	},
 	function(accessToken, refreshToken, profile, done){
-		console.log(accessToken);
-		getUserInfo(accessToken);
 		// console.log(accessToken);
-		// console.log(profile);
+		// getUserInfo(accessToken);
+		console.log(accessToken);
+		console.log(profile);
 		process.nextTick(function(){
 			return done(null, profile);
 		});
@@ -84,65 +80,32 @@ app.use(passport.session());
 //app.engine('handlebars', handlebars({defaultLayout: 'main'}));
 //app.set('view engine', 'handlebars');
 
-
-//app.get('/', function(req, res){
-//	res.render('home', {user: req.user});
-//});
-
-// app.get('/account', ensureAuthenticated, function(req, res){
-//
-// 	res.render('account', {user: req.user});
-// });
 app.get('/account', function(req, res){
-	if(!req.user){res.redirect('/');return;}
-	console.log("profile: " + req.profile);
 
-	res.render('account', {user: req.user});
+	if(!req.user){res.redirect('/');return;}
+	// console.log(req.user);
+	// console.log("profile: " + req.profile);
+	// request('https://www.reddit.com/r/videos/comments/4ashfl.json', function(err, res, body){
+	// 	if(err){
+	// 		console.log(err);
+	// 		return;
+	// 	}
+	// 	console.log(res + body);
+	// });
+	res.redirect('/#/account');
+	// res.render('account', {user: req.user});
 });
 
-// app.get('/login', function(req, res){
-// 	reddit.setupOAuth2(consumer_key, consumer_secret, 'http://localhost:8080/account');
-//
-// 	var url = reddit.authUrl(res.state, ['identity']);
-// 	console.log(url);
-// 	res.redirect(url);
-// 	// reddit.auth({code: "TYPE"}, function(err, response){
-// 	// 	if(err){
-// 	// 		console.log('auth error: '+err);
-// 	// 	} else {
-// 	// 		console.log(response);
-// 	// 	}
-// 	// });
-// 	// res.render('login', { user: req.user});
-// });
 app.get('/login', passport.authenticate('reddit'));
 
 app.get('/auth/reddit', passport.authenticate('reddit'));
 
 app.get('/auth/reddit/callback', passport.authenticate('reddit',
 {
-	successRedirect: '/#/account',
+	successRedirect: '/account',
 	failureRedirect: '/'
 }));
-// function(req, res, next){
-// 	console.log('-----------query state-----------------');
-// 	console.log(req.query.state);
-// 	console.log('-----------session state-----------------');
-// 	console.log(req.session);
-// 	console.log(req.session.state);
-// 	console.log('----------------------------');
-// 	// if(state === req.query.state){console.log('CHICKEN SOUP FOR THE ANGRY DEVELOPERS SOUL');}
-// 	if(req.query.state === req.session.state){
-// 		passport.authenticate('reddit', {
-// 			successRedirect: '/',
-// 			failureRedirect: '/login'
-// 		});
-// 	} else {
-// 		next(new Error(403));
-// 	}
-// });
 
-//
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', function(req, res){
