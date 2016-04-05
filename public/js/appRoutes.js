@@ -19,19 +19,17 @@ var module = angular.module("dashboard", ['ngRoute']);
     module.controller("RouteController", function($scope, $http) {
 
             $scope.login = function (){
-                console.log($scope.user.name+"  "+$scope.user.password);
+                //console.log($scope.user.name+"  "+$scope.user.password);
                 var data = {name: $scope.user.name , password: $scope.user.password};
-                var auth = $http.post("http://localhost:3000/authenticate",data)
+                $http.post("/authenticate",data)
                     .then(
                         function(response){
-
                             console.log(response.headers());
-                            $http.get("http://localhost:3000/users", response.headers(['x-access-token']))
+                            $http.get("/users", response.headers(['x-access-token']))
                                 .then(function(response){
                                     console.log("logged in");
                                 });
                         }
                     );
-                console.log(auth);
             }
     });
