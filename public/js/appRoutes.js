@@ -17,19 +17,21 @@ var module = angular.module("dashboard", ['ngRoute']);
         }]);
 
     module.controller("RouteController", function($scope, $http) {
-            // cannot set property name of undefined when uncommented
-            // trying to set default values
-            // $scope.user.name = "jim lahey";
-            // $scope.user.password = "iAmTheLiqour";
+
             $scope.login = function (){
                 console.log($scope.user.name+"  "+$scope.user.password);
                 var data = {name: $scope.user.name , password: $scope.user.password};
                 var auth = $http.post("http://localhost:3000/authenticate",data)
                     .then(
-                        function(){
-                            console.log("worked");
+                        function(response){
+
+                            console.log(response.headers());
+                            $http.get("http://localhost:3000/users", response.headers(['x-access-token']))
+                                .then(function(response){
+                                    console.log("logged in");
+                                });
                         }
                     );
-                console.log("auth"+auth);
+                console.log(auth);
             }
     });
