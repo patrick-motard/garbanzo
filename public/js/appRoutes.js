@@ -17,5 +17,7 @@ var module = angular.module("dashboard", ['ngRoute']);
         }]);
 
     module.controller("RouteController", function($scope) {
-            $scope.loggedIn = false;
+            $scope.login = function (){
+                console.log("submitted");
+            }
     });
