@@ -1,24 +1,35 @@
-<html>
+<html ng-app="app" >
   <head>
-    <title>Dashboard</title>
-
-    <link rel="stylesheet" type="text/css" href="css/nav.css">
-
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
-    <script src="js/appRoutes.js"></script>
-  </head>
-  <body ng-app="dashboard">
-    <nav>
+        <!-- url base to remove # from routes -->
+        <base href="/">
+        <title>Dashboard</title>
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/nav.css">
+        <!-- angular packages -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
+        <script src="http://code.angularjs.org/1.2.16/angular-cookies.min.js"></script>
+        <!-- config script -->
+        <script src="js/app.js"></script>
+        <!-- controllers -->
+        <script src="js/controllers/login.controller.js"></script>
+        <script src="js/controllers/home.controller.js"></script>
+        <script src="js/controllers/nav.controller.js"></script>
+        <!-- services -->
+        <script src="js/services/login.service.js"></script>
+</head>
+<body>
+    <!-- navigation -->
+    <nav ng-controller="nav.controller">
         <ul>
-            <li><a href="#/main">main</a></li>
-            <li ng-show="loggedIn"><a href="#/account">account</a></li>
-            <li ng-hide="loggedIn"><a href="#/login">login</a></li>
-            <li ng-show="loggedIn"><a href="#/logout">logout</a></li>
+        <li ng-hide="loggedIn"><a href="/login">Login</a></li>
+        <li ng-show="loggedIn"><a href="/home">home</a></li>
+        <li ng-show="loggedIn"><a href="/" ng-click="logout()">logout</a></li>
         </ul>
     </nav>
 
-     <div ng-view></div>
-  </div>
-  </body>
+    <!-- views load here -->
+    <div ng-view></div>
+</body>
 </html>

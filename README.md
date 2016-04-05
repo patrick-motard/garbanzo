@@ -6,7 +6,7 @@ $ npm install
 # Run Server
 
 ```sh
-$ DEBUG=garbanzo:* npm start
+$ npm run dev
 ```
 # Navigate to Application in Browser
 
@@ -28,7 +28,7 @@ Include the following key/value pairs in the body of the request:
 
 In postman you can import collections. Collections allow users to group HTTP requests together that they have configured. Requests I have configured for testing the API can be found in a collection at the following location:
 
-https://www.getpostman.com/collections/5040e36dd7807f52bd4c
+https://www.getpostman.com/collections/82e05d627731ef64a769
 
 You can import this collection into your postman.
 
