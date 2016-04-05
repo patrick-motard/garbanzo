@@ -26,6 +26,7 @@
     "passport": "^0.3.2",
     "passport-reddit": "^0.2.4",
     "request": "^2.69.0",
+    "snoowrap": "^0.10.1",
     "underscore": "^1.8.3"
   },
   "devDependencies": {}

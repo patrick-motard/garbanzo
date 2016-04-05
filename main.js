@@ -10,8 +10,6 @@ var express 			= require('express'),
 	app 				= express(),
 	http				= require('http'),
 	https 				= require('https'),
-	rawjs				= require('raw.js'),
-	reddit 				= new rawjs('rawjs example script'),
 
 	consumer_key		= 'WxtRyRiGVbiL8A',
 	consumer_secret		= 'xJNj7utuQyRTcGGqH-xQQlqpTGM',
@@ -73,12 +71,11 @@ app.use(session({
 	secret: 'garbanzo_bean',
 	resave: false,
 	saveUninitialized: false,
-	// cookie: {domain: 'localhost:8080/'}
+
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-//app.engine('handlebars', handlebars({defaultLayout: 'main'}));
-//app.set('view engine', 'handlebars');
+
 
 app.get('/account', function(req, res){
 
