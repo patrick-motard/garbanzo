@@ -3,17 +3,13 @@ var module = angular.module("dashboard", ['ngRoute']);
     module.config(['$routeProvider',
         function($routeProvider) {
             $routeProvider.
-                when('/main', {
-                    templateUrl: '../views/main.html',
-                    controller: 'RouteController'
+                when('/', {
+                    templateUrl: '../views/login.html',
+                    controller: 'RouteController as rc'
                 }).
                 when('/account', {
                     templateUrl: '../views/account.html',
-                    controller: 'RouteController'
-                }).
-                when('/login', {
-                    templateUrl: '../views/login.html',
-                    controller: 'RouteController'
+                    controller: 'RouteController as rc'
                 }).
                 otherwise({
                     redirectTo: '/'
