@@ -5,31 +5,36 @@ var module = angular.module("dashboard", ['ngRoute', 'ngCookies']);
             $routeProvider.
                 when('/', {
                     templateUrl: '../views/login.html',
-                    controller: 'RouteController as rc'
+                    controller: 'LoginController'
                 }).
                 when('/account', {
                     templateUrl: '../views/account.html',
-                    controller: 'RouteController as rc'
+                    controller: 'LoginController'
                 }).
                 otherwise({
                     redirectTo: '/'
                 });
         }]);
 
-    module.controller("RouteController", function($scope, $http) {
-
-            $scope.login = function (){
-                //console.log($scope.user.name+"  "+$scope.user.password);
-                var data = {name: $scope.user.name , password: $scope.user.password};
-                $http.post("/authenticate",data)
-                    .then(
-                        function(response){
-                            console.log(response.headers());
-                            $http.get("/users", response.headers(['x-access-token']))
-                                .then(function(response){
-                                    console.log("logged in");
-                                });
-                        }
-                    );
-            }
+    module.controller("LoginController", function($scope, $http) {
+        var req = {
+             method: 'GET',
+             url: '/users',
+             headers: {
+               'x-access-token': response.data.token
+             }
+        }
+        $scope.login = function (){
+            //console.log($scope.user.name+"  "+$scope.user.password);
+            var data = {name: $scope.user.name , password: $scope.user.password};
+            $http.post("/authenticate",data)
+            .then(function(response){
+                //console.log(response.data.token);
+                $http(req)
+                .then(function(response){
+                    console.log("logged in");
+                });
+                }
+            );
+        };
     });
