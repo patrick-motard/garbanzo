@@ -1,4 +1,4 @@
-var module = angular.module("dashboard", ['ngRoute']);
+var module = angular.module("dashboard", ['ngRoute', 'ngCookies']);
 
     module.config(['$routeProvider',
         function($routeProvider) {
