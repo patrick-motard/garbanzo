@@ -1,25 +1,28 @@
 'use strict';
 
-angular.module('dashboard', [
+angular.module('app', [
     'ngRoute',
     'ngCookies',
-    'dashboard.LoginController',
-    'dashboard.HomeController'
-]).
-config(['$routeProvider', '$locationProvider',
+    'app.login.controller',
+    'app.home.controller',
+    'app.nav.controller',
+    'app.login.service'
+])
+.config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
+        //all routes configured
         $routeProvider.
             when('/', {
                 templateUrl: '../views/login.html',
-                controller: 'LoginController'
+                controller: 'login.controller'
             }).
-            when('/account', {
-                templateUrl: '../views/account.html',
-                controller: 'AccountController'
+            when('/home', {
+                templateUrl: '../views/home.html',
+                controller: 'home.controller'
             }).
             otherwise({
                 redirectTo: '/'
             });
-
+            //remove # from url bar
             $locationProvider.html5Mode(true);
 }]);
