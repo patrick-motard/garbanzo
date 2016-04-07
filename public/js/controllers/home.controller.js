@@ -1,4 +1,3 @@
-angular.module('app.home.controller',[])
-.controller('HomeController', function($scope) {
+app.controller('HomeController', function($scope) {
 'use-strict';
 });

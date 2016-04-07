@@ -1,10 +1,6 @@
-angular.module('app', [
+var app = angular.module('app', [
     'ngRoute',
     'ngCookies',
-    'app.login.controller',
-    'app.home.controller',
-    'app.nav.controller',
-    'app.login.service'
 ])
 .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {

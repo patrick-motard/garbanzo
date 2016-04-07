@@ -1,5 +1,4 @@
-angular.module("app.login.service",[])
-.factory('login',[function(){
+app.factory('login',function(){
     'use-strict';
     var factory = {};
     //init factory state
@@ -9,4 +8,4 @@ angular.module("app.login.service",[])
         factory.state = bool;
     }
     return factory;
-}]);
+});

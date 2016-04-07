@@ -1,5 +1,5 @@
-angular.module("app.login.controller",['app.login.service'])
-.controller("LoginController", function($scope, $http, login) {
+// angular.module("app.login.controller",['app.login.service'])
+app.controller("LoginController", function($scope, $http, login) {
     'use-strict';
     //auth with backend to confirm user name and password
     $scope.login = function (){
