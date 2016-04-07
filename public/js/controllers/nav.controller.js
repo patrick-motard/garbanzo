@@ -1,7 +1,6 @@
-'use-strict';
-
 angular.module("app.nav.controller",['app.login.service'])
 .controller('NavController', function($scope, $location, login){
+    'use-strict';
     //set intial state for navbar
     $scope.loggedIn = login.state;
     //watch the factory.state variable for changes

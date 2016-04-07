@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('app', [
     'ngRoute',
     'ngCookies',
@@ -10,6 +8,7 @@ angular.module('app', [
 ])
 .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
+        'use strict';
         //all routes configured
         $routeProvider.
             when('/', {
