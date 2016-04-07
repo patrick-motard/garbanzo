@@ -14,11 +14,11 @@ angular.module('app', [
         $routeProvider.
             when('/', {
                 templateUrl: '../views/login.html',
-                controller: 'login.controller'
+                controller: 'LoginController'
             }).
             when('/home', {
                 templateUrl: '../views/home.html',
-                controller: 'home.controller'
+                controller: 'HomeController'
             }).
             otherwise({
                 redirectTo: '/'

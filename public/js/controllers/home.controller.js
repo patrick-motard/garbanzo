@@ -1,5 +1,5 @@
 'user-strict';
 
-angular.module('app.home.controller',[]).controller('home.controller', function($scope) {
+angular.module('app.home.controller',[]).controller('HomeController', function($scope) {
 
 });
