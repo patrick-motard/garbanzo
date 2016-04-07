@@ -8,7 +8,7 @@ angular.module('app', [
 ])
 .config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
-        'use strict';
+        'use-strict';
         //all routes configured
         $routeProvider.
             when('/', {
