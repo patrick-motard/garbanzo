@@ -8,11 +8,11 @@ var app = angular.module('app', [
         //all routes configured
         $routeProvider.
             when('/', {
-                templateUrl: '../views/login.html',
+                templateUrl: 'js/login/login.html',
                 controller: 'LoginController'
             }).
             when('/home', {
-                templateUrl: '../views/home.html',
+                templateUrl: 'js/home/home.html',
                 controller: 'HomeController'
             }).
             otherwise({

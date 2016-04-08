@@ -1,4 +1,3 @@
-// angular.module("app.nav.controller",['app.login.service'])
 app.controller('NavController', function($scope, $location, login){
     'use-strict';
     //set intial state for navbar
