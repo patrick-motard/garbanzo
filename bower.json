@@ -1,0 +1,22 @@
+{
+  "name": "garbanzo",
+  "version": "0.0.0",
+  "homepage": "https://github.com/patrick-motard/garbanzo",
+  "authors": [
+    "Mark Staebler <markstaebler@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.5.3",
+    "materialize": "~0.97.6",
+    "angular-route": "~1.5.3",
+    "angular-cookies": "~1.5.3"
+  }
+}
