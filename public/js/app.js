@@ -1,23 +1,20 @@
 var app = angular.module('app', [
-    'ngRoute',
+    'ui.router',
     'ngCookies',
 ])
-.config(['$routeProvider', '$locationProvider',
-    function($routeProvider, $locationProvider) {
+.config(['$stateProvider', '$urlRouterProvider',
+function($stateProvider, $urlRouterProvider) {
         'use-strict';
-        //all routes configured
-        $routeProvider.
-            when('/', {
+        $stateProvider.
+            state('/', {
+                url: '/',
                 templateUrl: 'js/login/login.html',
                 controller: 'LoginController'
             }).
-            when('/home', {
+            state('/home', {
+                url:'/home',
                 templateUrl: 'js/home/home.html',
                 controller: 'HomeController'
-            }).
-            otherwise({
-                redirectTo: '/'
             });
-            //remove # from url bar
-            $locationProvider.html5Mode(true);
+        $urlRouterProvider.otherwise('/');
 }]);
