@@ -1,23 +1,31 @@
 var app = angular.module('app', [
-    'ngRoute',
+    'ui.router',
     'ngCookies',
 ])
-.config(['$routeProvider', '$locationProvider',
-    function($routeProvider, $locationProvider) {
+.run(function ($rootScope, $state, login) {
+  $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
+    if (toState.authenticate && !login.state){
+      // User isn’t authenticated
+      $state.transitionTo("login");
+      event.preventDefault();
+    }
+  });
+})
+.config(['$stateProvider', '$urlRouterProvider',
+function($stateProvider, $urlRouterProvider) {
         'use-strict';
-        //all routes configured
-        $routeProvider.
-            when('/', {
+        $stateProvider.
+            state('login', {
+                url: '/',
                 templateUrl: 'js/login/login.html',
-                controller: 'LoginController'
+                controller: 'LoginController',
+                authenticate: false
             }).
-            when('/home', {
+            state('home', {
+                url:'/home',
                 templateUrl: 'js/home/home.html',
-                controller: 'HomeController'
-            }).
-            otherwise({
-                redirectTo: '/'
+                controller: 'HomeController',
+                authenticate: true
             });
-            //remove # from url bar
-            $locationProvider.html5Mode(true);
+        $urlRouterProvider.otherwise('/');
 }]);

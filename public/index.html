@@ -1,8 +1,6 @@
 <html ng-app="app" >
     <head>
         <title>Dashboard</title>
-        <!-- url base to remove # from routes -->
-        <base href="/">
         <!-- Materialize stylesheet -->
         <link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css" />
         <!-- Custom stylesheets -->
@@ -19,11 +17,11 @@
                 </ul>
             </nav>
             <!-- views load here -->
-            <div ng-view></div>
+            <div ui-view></div>
         </div>
         <!-- angular packages -->
         <script src="bower_components/angular/angular.min.js"></script>
-        <script src="bower_components/angular-route/angular-route.min.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
         <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
         <!-- config script -->
         <script src="js/app.js"></script>
