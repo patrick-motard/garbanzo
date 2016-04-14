@@ -1,12 +1,20 @@
 var knex = require('knex')({
-        host: '127.0.0.1:3306',
-        user: 'root',
-        password: '',
-        database: 'garbanzo'
+        client: 'mysql',
+        connection: {
+            host: '127.0.0.1',
+            user: 'root',
+            password: '',
+            database: 'garbanzo'
+        }
     }),
     Promise = require('bluebird');
 
-module.exports = function(){
-    knex.select().table('users')
-    .then(x => console.log(x));
+function getUsers(){
+    return knex.select().table('users')
+    .then(x => console.log(x))
+    .catch(err => console.log(err));
 }
+module.exports = function(){
+    getUsers();
+}
+getUsers();
