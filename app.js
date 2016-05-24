@@ -1,3 +1,4 @@
+require('dotenv/config');
 var express = require('express'),
     path = require('path'),
     favicon = require('serve-favicon'),
@@ -7,9 +8,14 @@ var express = require('express'),
     jwt = require('jsonwebtoken'),
     config = require('./config.json'),
     authMiddleware = require('./middleware/tokenVerify'),
+    pools = require('./service/pools')(config),
 
+    // services
+    userService = require('./services/user')(pools.garbanzo),
+
+    // routes
     routes = require('./routes/index'),
-    users = require('./routes/users'),
+    users = require('./routes/users')(userService),
     authenticate = require('./routes/authenticate'),
 
     app = express();

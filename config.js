@@ -1,4 +1,17 @@
-{
+module.exports = () => {
+    var p = process.env;
+    return {
+        garbanzoDbConfig: {
+            host: p.GARBANZO_HOST,
+            database: p.GARBANZO_DATABASE,
+            password: p.GARBANZO_PASSWORD,
+            user: p.GARBANZO_USER
+        },
+        secret: process.env.SECRET,
+        redditAuth: {
+            access_token
+        }
+    }
     "secret": "there's always money in the banana stand",
     "redditAuth": {
         "access_token": "45422354-IJ9yL1kqs9qXhbqAD6a1r5O11Jg",
