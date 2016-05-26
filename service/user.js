@@ -7,21 +7,21 @@ module.exports = (knex) => {
         "last_login"
     ];
 
-    getUsers (ids) => {
+    function getUsers (ids) {
         var q = knex.select(fields).from('user');
         if(ids){ return q.whereIn(ids)}
         return q;
     }
 
-    getUser (id) => {
+    function getUser (id) {
         return getUsers([id]);
     }
 
-    createUser (user) => {
+    function createUser (user) {
         return knex.insert(user).into('user');
     }
 
-    toggleActive (id, active) => {
+    function toggleActive (id, active) {
         return knex.update('active', active).where('id', id);
     }
 

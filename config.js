@@ -16,4 +16,4 @@ module.exports = () => {
             scope: 'account edit history identity'
         }
     }
-}
+}()

@@ -1,4 +1,6 @@
 require('dotenv/config');
+global.__base = __dirname + '/';
+
 var express = require('express'),
     path = require('path'),
     favicon = require('serve-favicon'),
@@ -6,20 +8,20 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     jwt = require('jsonwebtoken'),
-    config = require('./config.json'),
+    config = require('./config.js'),
     authMiddleware = require('./middleware/tokenVerify'),
     pools = require('./service/pools')(config),
 
     // services
-    userService = require('./services/user')(pools.garbanzo),
+    userService = require('./service/user')(pools.garbanzo),
 
     // routes
     routes = require('./routes/index'),
-    users = require('./routes/users')(userService),
+    users = require('./routes/users'),
     authenticate = require('./routes/authenticate'),
 
-    app = express();
-
+    // initialize app and attach services to it.
+    app = require('./registry/services')(express(), pools);
 
 app.set('superSecret', config.secret);
 

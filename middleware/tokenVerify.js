@@ -1,5 +1,5 @@
 // jshint esversion: 6
-var config = require('./../config.json'),
+var config = require('./../config.js'),
     jwt = require('jsonwebtoken');
 
 module.exports = function(req, res, next){
