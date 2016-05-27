@@ -13,7 +13,7 @@ router.get('/', (req, res, next) => {
 
 
 router.post('/create', (req, res, next) => {
-    
+    res.send('Sorry, not implemented yet');
 })
 
 module.exports = router;
