@@ -12,10 +12,9 @@ var express = require('express'),
     authMiddleware = require('./middleware/tokenVerify'),
     pools = require('./service/pools')(config),
 
-    // services
-    userService = require('./service/user')(pools.garbanzo),
-
     // routes
+
+
     routes = require('./routes/index'),
     users = require('./routes/users'),
     authenticate = require('./routes/authenticate'),
@@ -41,7 +40,7 @@ app.get('/', function(req, res){
   res.redirect('/index.html');
 });
 
-app.use('/users', authMiddleware, users);
+app.use('/users', users);
 
 app.use('/authenticate', authenticate);
 

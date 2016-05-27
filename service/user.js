@@ -1,4 +1,4 @@
-module.exports = (knex) => {
+module.exports = function (knex) {
 
     var fields = [
         "name",
