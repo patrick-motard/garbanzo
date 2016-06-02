@@ -1,4 +1,4 @@
-module.exports = () => {
+module.exports = function() {
     var p = process.env;
     return {
         garbanzoDbConfig: {

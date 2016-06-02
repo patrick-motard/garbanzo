@@ -16,14 +16,10 @@
     "jade": "~1.11.0",
     "jsonwebtoken": "~5.7.0",
     "morgan": "~1.6.1",
-<<<<<<< HEAD
     "mysql": "^2.10.2",
     "pg": "^4.5.5",
     "serve-favicon": "~2.3.0",
     "snoowrap": "^0.11.1",
     "underscore": "^1.8.3"
-=======
-    "serve-favicon": "~2.3.0"
->>>>>>> 9d03cfa831dc899a4806a9e3653988ee18e0f6a7
   }
 }
