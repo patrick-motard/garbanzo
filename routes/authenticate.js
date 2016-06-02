@@ -13,7 +13,7 @@ router.post('/', function(req, res, next) {
         return;
     }
     var token = jwt.sign({user: 'chickenman'}, req.app.get('superSecret'), {
-        expiresInMinutes: 1440
+        expiresIn: 86400
     });
 
     res.status(200).json({
